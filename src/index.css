@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Quicksand", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fredoka", "Quicksand", sans-serif;
+  
+  --color-brand-red: #DC2626;
+  --color-brand-black: #171717;
+  --color-brand-white: #FFFFFF;
+  --color-brand-gray: #F5F5F5;
+  --color-brand-accent: #EF4444;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-brand-gray);
+    color: var(--color-brand-black);
+    font-family: var(--font-sans);
+  }
+}
+
+/* Professional but friendly classes */
+.bouncy-card {
+  @apply rounded-2xl border-2 transition-all hover:shadow-xl hover:-translate-y-1 bg-white;
+}
+
+.organic-shape {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
+
+.btn-primary {
+  @apply bg-brand-red text-white px-8 py-3 rounded-xl font-bold transition-all hover:bg-brand-black hover:scale-105 shadow-lg shadow-brand-red/20;
+}
+
+.btn-secondary {
+  @apply bg-white text-brand-black border-2 border-brand-black/10 px-8 py-3 rounded-xl font-bold transition-all hover:bg-brand-gray;
+}
