@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Home as HomeIcon, Trophy, Calendar, BookOpen, Menu, X, GraduationCap, Zap, MapPin, Phone, Mail } from 'lucide-react';
@@ -8,6 +8,14 @@ import Events from './pages/Events';
 import About from './pages/About';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
 
 const navItems = [
   { name: 'Home', path: '/', icon: HomeIcon, color: 'text-brand-red' },
@@ -134,6 +142,7 @@ function PageTransition({ children }: { children: React.ReactNode }) {
 export default function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="bg-brand-gray">
         <Navbar />
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 pointer-events-auto">
